@@ -1,0 +1,162 @@
+header {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 60px;
+    text-align: center; 
+    padding: 15px;
+    color:rgb(255,215,0);
+    -webkit-text-stroke:2px rgb(17, 67, 219);
+    letter-spacing: 2.5px;
+}
+  
+body {
+    background-image: url("https://cutewallpaper.org/21/pokemon-grass-background/Pokemon-forest-by-BlazingIfrit-Fur-Affinity-dot-net.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; 
+}  
+
+img {
+    width: auto;
+    height: 90px;
+    margin: 10px;
+    padding: 10px
+}
+
+nav {
+    font-family:'Monomaniac One', sans-serif;
+    text-align: center; 
+    font-size: 40px;
+    padding: 40px;
+    color:rgb(255, 255, 255);
+    -webkit-text-stroke:2px rgb(225, 23, 23);
+    letter-spacing: 2.5px;
+    display: inline-block; /* Hace que el texto sea un bloque en línea */
+    animation: marquee 15s linear infinite; 
+}
+@keyframes marquee {
+    0% { transform: translateX(100%); } /* Inicio: texto desplazado 100% hacia la derecha */
+    100% { transform: translateX(-100%); } 
+}
+
+button[name="johto"]{
+    background-color: rgb(255,69,0);
+    color: white;
+    border: 3px, rgb(17, 67, 219);
+    padding: 10px 60px;
+    font-size: 30px;
+    font-family:'Monomaniac One', sans-serif; 
+    margin-bottom: auto;  
+}
+
+button[name="kanto"]{
+    background-color: rgb(255,69,0);
+    color: white;
+    border: 3px, rgb(17, 67, 219);
+    padding: 10px 60px;
+    font-family:'Monomaniac One', sans-serif;
+    font-size: 30px;
+    margin-bottom: auto;
+}
+    
+.container {
+    display: flex;
+    align-items: center;
+    justify-content:space-around; 
+    height: 100px; 
+}
+    
+    .container-img {
+        display: flex;
+        align-items: center;
+        justify-content:space-around; 
+        height: 100px; 
+    }
+
+    img [name= "img-kanto"]{
+        border: 3px, rgb(17, 67, 219);
+        padding: 40px 60px;
+        width: 100px;
+    }
+    
+    img [name= "img-johto"]{
+            border: 3px, rgb(17, 67, 219);
+            padding: 40px 60px;
+            width: 100px;
+    }
+    
+    footer{
+        font-family: 'Black Han Sans', sans-serif;
+        font-size: 15px;
+        text-align: center; 
+        padding: 10px;
+        color:rgb(254, 254, 252);
+        -webkit-text-stroke:1px rgb(17, 67, 219);
+        letter-spacing: 2.5px;  
+        align-items:center;
+        background-color: rgb(255,215,0);
+    }
+    
+    .img-pokemon1{
+        display: flex;
+        align-items: center;
+        justify-content:space-between; 
+        height: 100px;
+    }
+    
+    #tarjetas{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    .pokemon-card{
+        text-align: center;
+        border: 1px solid;
+        border-radius: 5px;
+        /*flex-wrap: nowrap;*/
+        background-color: rgba(247, 255, 128, 0.637);
+    }
+
+    .textoFrente{
+        text-align: center;
+        font-family:'Monomaniac One', sans-serif;
+        font-size: 18px;
+    }
+    .textoReverso{
+        font-family:'Monomaniac One', sans-serif;
+    }
+
+    #botones{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+    }
+    .iconoAnterior{
+        display: inline-block;
+        width: 64px; 
+        height: 64px;
+        background-image: url(assets/atras64.png);
+        border-radius: 8px;
+    }    
+    .iconoSiguiente{
+        display: inline-block;
+        width: 64px; 
+        height: 64px;
+        background-image: url(assets/adelante64.png);
+        border-radius: 8px;
+    }
+    #cambioRegion{
+        width: 68px;
+        height: 68px;
+        background-image: url(assets/cambiarRegion64.png);
+    }
+    .iconoAnterior:hover{
+        background-color: rgba(255, 0, 0, 0.445);
+    } 
+    .iconoSiguiente:hover{
+        background-color: rgba(255, 0, 0, 0.445);
+    } 
+    #cambioRegion:hover{
+        background-color: rgba(255, 0, 0, 0.445);
+    }
