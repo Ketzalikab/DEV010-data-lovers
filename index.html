@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap" rel="stylesheet">
+  </head>
+  <div> 
+    <section class="img-pokemon1">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/800px-Pokebola-pokeball-png-0.png">
+    </section>
+    <header>Welcome to this adventure...</header> 
+    <nav id = "marquee">Please select the region </nav> 
+    <main class ="begin">
+      <section class="container"> 
+        <button id="showKantoCards" name="kanto">Kanto Region</button>
+        <button id="showJohtoCards" name="johto">Johto Region</button>  
+      </section> 
+      <figure class="container-img">
+        <img name= "img-kanto" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/5/5b/latest/20180712231931/Mapa_de_Kanto_LGPE.png/428px-Mapa_de_Kanto_LGPE.png" alt="Región Kanto" title="Región Kanto">
+        <img name= "img-johto" src="https://images.wikidexcdn.net/mwuploads/wikidex/thumb/f/fe/latest/20180203062443/Johto_HGSS.png/428px-Johto_HGSS.png" alt="Región Johto" title="Región Johto">
+      </figure>
+    </main>
+    <div id = "filterBar" style="display: none;">
+      <label for="categoryType">Type</label>
+        <select id="categoryType" class="formlabel">
+            <option value="cero">---</option>
+            <option value="steel">Steel</option>
+            <option value="water">Water</option>
+            <option value="bug">Bug</option>
+            <option value="dragon">Dragon</option>
+            <option value="electric">Electric</option>
+            <option value="ghost">Ghost</option>
+            <option value="fire">Fire</option>
+            <option value="fairy">Fairy</option>
+            <option value="ice">Ice</option>
+            <option value="fighting">fighting</option>
+            <option value="normal">Normal</option>
+            <option value="grass">Grass</option>
+            <option value="psychic">Psychic</option>
+            <option value="rock">Rock</option>
+            <option value="dark">Dark</option>
+            <option value="ground">Ground</option>
+            <option value="poison">Poison</option>
+            <option value="flying">Flying</option>
+        </select>
+        <label for="categoryGeneration">Generation</label>
+        <select id="categoryGeneration" class="formlabel">
+            <option value="cero">---</option>
+            <option value="generation i">Generation(i)</option>
+            <option value="generation ii">Generation(ii)</option>
+        </select>
+        <label for="categoryRarity">Rarity</label>
+        <select id="categoryRarity" class="formlabel">
+            <option value="cero">---</option>
+            <option value="normal">Normal</option>
+            <option value="legendary">Legendary</option>
+            <option value="mythic">Mythic</option>
+        </select>
+        <button id="filter">Filter</button>
+        <span>SORT BY:</span>
+        <button id="btnAscendent">Ascendent</button>
+        <button id="btnDescendent">Descendent</button>
+        <input id="valueSearch" class="formlabel" placeholder="Search by name or pokemon number...">
+        <button id="search"></button>
+        <span id = "alerts"></span>
+    </div>
+    <div id = "statsAttack" style="display: none;">You can calculate wich pokemon to beat
+      <input id="firstPkm" placeholder="Search by name or pokemon numer" class="formlabel">
+      <button id= "comparePkm">COMPARE</button>
+      <button id = "resetFilters">RESERT ALL</button>
+      <span id = "alertsCompare"></span>
+    </div>
+    <div id="root">
+      <div id="cards" style="display: none;">
+        <div class = "containerCards">
+          <div id = "frontCards" style="display: none;"></div> 
+          <div id = "backCards" style="display: none;"></div>
+        </div>  
+      </div>
+      <div id = "buttons">
+        <button id="btnPrev" style = "display: none;" title="Previous page"><span class = "nextIcon"></span></button>
+        <button id="btnNext" style = "display: none;" title="Next page"><span class = "previousIcon"></span></button>
+      </div>
+      <button id="changeRegion" style="display: none;" title="Change region"></button>
+    </div> 
+    <script src="main.js" type="module"></script>
+    <footer>
+      <p>Developers: Saharai Rodríguez/Ketzali Arreola</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,307 @@
+header {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 60px;
+    text-align: center; 
+    padding: 15px;
+    color:rgb(255,215,0);
+    -webkit-text-stroke:2px rgb(17, 67, 219);
+    letter-spacing: 2.5px;
+    
+}
+  
+@media (max-width: 768px) {
+    header {
+        font-size: 30px; /* Tamaño de fuente más pequeño para dispositivos móviles */
+        padding: 10px;   /* Espaciado más pequeño */
+    }
+}
+body {
+    background-image: url("https://cutewallpaper.org/21/pokemon-grass-background/Pokemon-forest-by-BlazingIfrit-Fur-Affinity-dot-net.jpg");
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    min-height: 100vh; /* Asegura que el body tenga al menos el alto de la pantalla */
+    margin: 0; /* Elimina los márgenes predeterminados del body */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye los elementos a lo largo de la página */
+}  
+@media (max-width: 768px) {
+    body {
+      background-size: cover;
+    }
+  }
+
+img {
+    width: auto;
+    height: 90px;
+    margin: 10px;
+    padding: 10px
+}
+@media (max-width: 768px) {
+    img {
+        max-width: 80%; /* Reduce el ancho de la imagen en dispositivos móviles */
+        margin: 5px;    /* Espaciado más pequeño */
+        padding: 5px;
+    }
+}
+
+nav {
+    font-family:'Monomaniac One', sans-serif;
+    text-align: center; 
+    font-size: 40px;
+    padding: 40px;
+    color:rgb(255, 255, 255);
+    -webkit-text-stroke:2px rgb(225, 23, 23);
+    letter-spacing: 2.5px;
+    display: inline-block; /* Hace que el texto sea un bloque en línea */
+    animation: marquee 15s linear infinite; 
+}
+@keyframes marquee {
+    0% { transform: translateX(100%); } /* Inicio: texto desplazado 100% hacia la derecha */
+    100% { transform: translateX(-100%); } 
+}
+
+button[name="johto"]{
+    background-color: rgb(255,69,0);
+    color: white;
+    border: 3px, rgb(17, 67, 219);
+    padding: 10px 60px;
+    font-size: 30px;
+    font-family:'Monomaniac One', sans-serif; 
+    margin: 10px; /* Agrega un margen entre los botones */
+    border-radius: 8px;
+ 
+}
+
+
+button[name="kanto"]{
+    background-color: rgb(255,69,0);
+    color: white;
+    border: 3px, rgb(17, 67, 219);
+    padding: 10px 60px;
+    font-size: 30px;
+    font-family:'Monomaniac One', sans-serif; 
+    margin: 10px; /* Agrega un margen entre los botones */
+    border-radius: 8px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content:space-around; 
+    height: 100px; 
+}
+    
+    .container-img {
+        display: flex;
+        align-items: center;
+        justify-content:space-around; 
+        height: 100px; 
+    }
+
+    img [name= "img-kanto"]{
+        border: 3px, rgb(17, 67, 219);
+        padding: 40px 60px;
+        width: 100px;
+        margin-top: auto; 
+    }
+    
+    img [name= "img-johto"]{
+            border: 3px, rgb(17, 67, 219);
+            padding: 40px 60px;
+            width: 100px;
+            margin-top: auto; 
+    }
+    
+    footer{
+        font-family: 'Black Han Sans', sans-serif;
+        font-size: 15px;
+        text-align: center; 
+        padding: 5px;
+        color:rgb(254, 254, 252);
+        -webkit-text-stroke:1px rgb(17, 67, 219);
+        letter-spacing: 2.5px;  
+       margin: 5px;
+        background-color: rgb(255,215,0);
+        width: 100%; /* Asegura que el footer tenga el ancho completo */
+}
+       
+    @media (max-width: 768px) {
+        footer {
+            font-size: 12px; /* Tamaño de fuente más pequeño para dispositivos móviles */
+            padding: 5px;    /* Espaciado más pequeño */
+        }
+    }
+    
+    .img-pokemon1{
+        display: flex;
+        align-items: center;
+        justify-content:space-between; 
+        height: 100px;
+    }
+    
+    #cards{
+       position: relative;
+    }
+
+    .containerCards{
+       position: relative;
+    }
+
+    #frontCards, #backCards{
+        grid-template-columns: repeat(5, 1fr);
+        display: flex;
+        width: 100%;
+        gap: 5px;
+        transition: transform 0.5s ease;
+    }
+
+    .pokemon-card{
+        text-align: center;
+        border: 2px solid;
+        border-radius: 5px;
+        border-color: rgb(7, 9, 10);
+        background-color: rgb(229, 241, 57);
+        width: 200px; 
+        height: 310px;
+        margin: 0 auto;
+       
+    }
+
+    #frontCards{
+        /*transform: perspective(500px) rotateY(0deg);*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        backface-visibility: hidden;
+    }
+
+    #backCards{
+        z-index: 1;
+    }
+
+    .reverse{
+        transform: perspective(500px) rotateY(180deg);
+    }
+
+    .reverseBack{
+        transform: perspective(500px) rotateY(360deg);
+    }
+
+    .reverse-content{
+        transform: rotateY(-180deg);
+        backface-visibility: hidden;
+        transition: transform 0.80s;
+        perspective: 2000px; /*efecto 3D*/
+        background-color: rgba(247, 255, 128, 0.637);
+    }
+
+    .frontText{
+        text-align: center;
+        font-family:'Monomaniac One', sans-serif;
+        font-size: 18px;
+    }
+    .reverseText{
+        text-align: center;
+        font-family:'Monomaniac One', sans-serif;
+        font-size: 14px;
+    }
+
+    #buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+    }
+    .nextIcon{
+        display: inline-block;
+        width: 64px; 
+        height: 64px;
+        background-image: url(assets/atras64.png);
+        border-radius: 8px;
+       
+    }    
+    .previousIcon{
+        display: inline-block;
+        width: 64px; 
+        height: 64px;
+        background-image: url(assets/adelante64.png);
+        border-radius: 8px;
+      
+    }
+    #changeRegion{
+        width: 68px;
+        height: 68px;
+        background-image: url(assets/cambiarRegion64.png);
+    }
+    .nextIcon:hover, .previousIcon:hover{
+        background-color: rgba(255, 0, 0, 0.445);
+    } 
+    #changeRegion:hover{
+        background-color: rgba(251, 255, 0, 0.445);
+    }
+    #search{
+        width: 68px;
+        height: 24px;
+        background-image: url(assets/gotcha.png);
+        background-repeat: no-repeat;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    #filterBar, #statsAttack{
+        display: flex;
+        justify-content:center;
+        background-color: rgba(251, 255, 0, 0.445);
+        padding:10px; 
+        font-family:'Monomaniac One', sans-serif;
+        border-radius: 8px;
+        border: 2px solid;
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        #filterBar {
+            flex-direction: column; /* Cambia la dirección de los elementos en pantallas pequeñas */
+            align-items: center; /* Centra los elementos horizontalmente */
+            padding: 10px 20px; /* Espaciado más pequeño en pantallas pequeñas */
+        }
+    }
+    #filter {
+        background-color:  rgba(251, 255, 0, 0.434);
+        background-color: rgb(255,69,0);
+        color: white;
+        border-radius: 8px;
+        font-family:'Monomaniac One', sans-serif; 
+        font-size: 15px;
+    }
+    #btnAscendent, #btnDescendent, #comparePkm{
+        background-color:  rgba(251, 255, 0, 0.434);
+        background-color: rgb(255,69,0);
+        color: white;
+        border-radius: 8px;
+        font-family:'Monomaniac One', sans-serif; 
+        font-size: 15px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    }
+    #resetFilters {
+        background-color:  rgba(251, 255, 0, 0.434);
+        background-color: rgb(255,69,0);
+        color: white;
+        border-radius: 8px;
+        font-family:'Monomaniac One', sans-serif; 
+        font-size: 15px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .formlabel {
+        background-color:  rgba(186, 189, 19, 0.959);
+        font-family:'Monomaniac One', sans-serif; 
+        border-radius: 8px;
+    }
+    #alerts, #alertsCompare{
+        color: red;
+    }
