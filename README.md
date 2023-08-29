@@ -64,7 +64,7 @@ The product can be used both before and during the Pokémon collection process, 
 * I would prefer to see the Pokémon presented in the form of cards.
 * I want the application to have a design that follows the color palette of the Pokémon brand.
 
-**Definitio of Done** 
+**Definition of Done** 
 
 **Create Low-Fidelity Proposal on Trello:**
   * Set up a Trello board for the project.
@@ -121,7 +121,7 @@ The product can be used both before and during the Pokémon collection process, 
 * I want each card to show attack information on the back, and these cards should flip when the cursor is hovered over them.
 * I want the application to be responsive and work across various types of devices.
 
-**Definitio of Done** 
+**Definition of Done** 
 
 **Display Attack Information with Basic Statistics Function:**
 * Implement a function that presents attack information using basic statistical calculations.
@@ -156,6 +156,7 @@ The product can be used both before and during the Pokémon collection process, 
 
   #### High-Fidelity Prototype"
 
+link for high-fidelity prototype: https://zpl.io/dxBPoB7.  
 
 ## 6. Usability Testing
 
