@@ -70,11 +70,21 @@ const dataFunction = {
     }else{
       nameOrNumber1 = nameOrNumber1.toLowerCase();
     }
+    //let valuesSpecialAttack
     const pkm1 = pokemon.find(p => p.num === numberPadded1 || p.name === nameOrNumber1);
+    const valuesSpecialAttack = [];
+    pkm1['special-attack'].forEach(pkm =>{valuesSpecialAttack.push(pkm['base-damage'])});
+    let sum = 0;
+    valuesSpecialAttack.forEach(specialAttackValue => {sum += Number(specialAttackValue)});
+    const averageAttack = (sum/valuesSpecialAttack.length);
     const weaknesses = pkm1.type;
-    return pokemon.filter(p => {
+    /*const pokemonWeak = pokemon.filter(p => {p.weaknesses.some(w => weaknesses.includes(w))});
+    console.log(pokemonWeak);*/
+    const pokemonWeak = pokemon.filter(p => {
       return p.weaknesses.some(w => weaknesses.includes(w));
-    }); 
+    });
+    //console.log(pokemonWeak);
+    return [pokemonWeak, averageAttack];
   }
 };
 
