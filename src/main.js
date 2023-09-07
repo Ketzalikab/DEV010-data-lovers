@@ -3,6 +3,8 @@ import dataFunction from './data.js';
 //import { number } from 'yargs';
 
 document.addEventListener("DOMContentLoaded", function () {
+  //El evento DOMContentLoaded se dispara cuando el documento HTML ha sido completamente cargado y parseado en el navegador. 
+  //Este evento se activa cuando la estructura de la página (DOM) está lista y disponible para que JavaScript interactúe con ella.
   //DECLARACIONES
   const btnKanto = document.getElementById("showKantoCards");
   const btnJohto = document.getElementById("showJohtoCards");
@@ -53,17 +55,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
   btnNext.addEventListener("click", nextPage); 
   btnPrev.addEventListener("click", previousPage);
+  //Este código agrega un event listener al botón con el id btnKanto. 
+  //Cuando se haga clic en ese botón, la función proporcionada como segundo argumento se ejecutará. Dentro de esta función:
+  //kanto = true;: Establece la variable kanto en true, lo que indica que se ha seleccionado la región Kanto.
+  //loadPkm(numberPage);: Llama a la función loadPkm con el número de página actual (numberPage) como argumento. 
+  //Esto se hace para cargar los Pokémon de la región Kanto en la página.
+
+  //nextPage: Llama a la función nextPage, que se encarga de cargar la siguiente página de tarjetas de Pokémon.
+  //previousPage: Cuando se haga clic en el botón "Anterior", llama a la función previousPage, 
+  //que carga la página anterior de tarjetas de Pokémon.
+
+  //Estas funciones anónimas/callback permiten definir la lógica que se ejecutará en respuesta a un evento, 
+  //como un clic en un botón, sin necesidad de declarar una función con nombre por separado.
 
   btnAsc.addEventListener("click", function() {
-    numberPage = 1;
+    //Agrega un event listener al botón "Ascendent". 
+    //Cuando se haga clic en este botón, la función anónima proporcionada como argumento se ejecutará.
+    numberPage = 1; // Establece el número de página en 1, para volver a la primera página cuando se cambia el orden.
     kanto = false;
-    johto = false;
+    johto = false; //Asegura que ni la región Kanto ni la región Johto estén seleccionadas.
     const sortBy = "num";
-    const sortOrder = "ascendent";
-    marquee.innerHTML = "Ascendent by pokemon number (ALL)";
+    const sortOrder = "ascendent"; //Define cómo se ordenarán los datos: por número de Pokémon y en orden ascendente.
+    marquee.innerHTML = "Ascendent by pokemon number (ALL)"; 
+    //Cambia el contenido del elemento con el id "marquee" para mostrar un mensaje indicando que los Pokémon se están mostrando en orden ascendente.
     ascendent = true;
-    descendent = false;
+    descendent = false; //Establece las variables booleanas para indicar que el orden es ascendente y no descendente.
     arrayAscendent = dataFunction.sortData(data.pokemon, sortBy, sortOrder);
+    //Utiliza una función llamada sortData de dataFunction para ordenar los datos de los Pokémon en orden ascendente según su número. 
+    //El resultado se almacena en arrayAscendent.
     filterArrays(numberPage, arrayAscendent);
   });
   
@@ -82,19 +101,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   btnChangeRegion.addEventListener("click", function(){
-    numberPage = 1;
-    if(kanto){
-      kanto = false;
-      johto = true;
-      loadPkm(numberPage);
-    }else if(johto){
-      johto = false;
-      kanto = true;
-      loadPkm(numberPage);
+    numberPage = 1; // Reinicia el número de página a 1
+    if(kanto){ // Si ya está seleccionada la región Kanto
+      kanto = false; // Desactiva Kanto
+      johto = true; // Activa Johto
+      loadPkm(numberPage); // Carga los Pokémon de la región Johto en la página
+    }else if(johto){ // Si ya está seleccionada la región Johto
+      johto = false; // Desactiva Johto
+      kanto = true; // Activa Kanto
+      loadPkm(numberPage); // Carga los Pokémon de la región Kanto en la página
+      // Si no se ha seleccionado ninguna región
     }else{
-      kanto = true;
-      johto = false;
-      loadPkm(numberPage);
+      kanto = true; // Activa Kanto
+      johto = false; // Desactiva Johto
+      loadPkm(numberPage); // Carga los Pokémon de la región Kanto en la página
     }
   });
    
@@ -183,27 +203,55 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  btnSearch.addEventListener("click", () => {
-    numberPage = 1;
-    const numberOrName = valueSearch.value;
-    alerts.innerHTML = "";
+  //función de flecha (() => {...}) y actúa como un manejador de eventos para el botón con el id btnFilter. 
+  //Es una función anónima que se utiliza como una función de callback en el método addEventListener. 
+  //Dado que está escrita en la sintaxis de funciones de flecha, es una función más concisa y en muchos casos puede reemplazar a las funciones regulares.
+
+  /*btnSearch.addEventListener("click", () => {
+    numberPage = 1; // Reiniciar el número de página
+    const numberOrName = valueSearch.value; // Obtener el valor del campo de búsqueda
+    alerts.innerHTML = ""; // Limpiar cualquier mensaje de alerta previo
     //console.log(numberOrName);
-    if(numberOrName === null){
+    if(numberOrName === null){ // Verificar si no se ingresó ningún valor
       alerts.innerHTML = "Please write a pokemon name or a pokemon number";
     }else{
-      if(!isNaN(numberOrName)){
-        const numberPadded = String(numberOrName).padStart(3, '0');
+      if(!isNaN(numberOrName)){ // Si el valor es un número
+        const numberPadded = String(numberOrName).padStart(3, '0'); // Formatear el número
+        //String(numberOrName): Convierte el número o nombre proporcionado en una cadena.
+        //.padStart(3, '0'): Rellena la cadena con ceros a la izquierda hasta que tenga una longitud de 3 caracteres
         arraySearch = dataFunction.searching(data.pokemon, numberPadded);
-      }else{
+      }else{ // Si el valor no es un número (presumiblemente un nombre)
         arraySearch = dataFunction.searching(data.pokemon, numberOrName.toLowerCase());
       }     
-      if(arraySearch === undefined){
+      if(arraySearch === undefined){ // Si la búsqueda no encontró resultados
         alerts.innerHTML = "Pokemon not found";
       }else{
-        pokemonFound(arraySearch);
+        pokemonFound(arraySearch); // Mostrar información del Pokémon encontrado
       }
     }
-  })
+  })*/
+
+  btnSearch.addEventListener("click", () => {
+    numberPage = 1; // Reiniciar el número de página
+    const numberOrName = valueSearch.value; // Obtener el valor del campo de búsqueda
+    alerts.innerHTML = ""; // Limpiar cualquier mensaje de alerta previo
+    
+    const isNumber = !isNaN(numberOrName);
+    
+    if (!numberOrName) {
+      alerts.innerHTML = "Please write a Pokémon name or a Pokémon number";
+    } else {
+      const searchTerm = isNumber ? String(numberOrName).padStart(3, '0') : numberOrName.toLowerCase();
+      arraySearch = dataFunction.searching(data.pokemon, searchTerm);
+        
+      if (arraySearch === undefined) {
+        alerts.innerHTML = "Pokemon not found";
+      } else {
+        pokemonFound(arraySearch); // Mostrar información del Pokémon encontrado
+      }
+    }
+  });
+
 
   btnReset.addEventListener("click", () => {
     numberPage = 1;
@@ -243,11 +291,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //FUNCIONES
   function backCard(){
-    const eachCard = document.querySelectorAll('.pokemon-card')
-    eachCard.forEach((element) => {
-      element.addEventListener('mouseover', (event) => {
+    const eachCard = document.querySelectorAll('.pokemon-card') // Esto crea una lista de nodos (elementos HTML).
+    eachCard.forEach((element) => { //Itera sobre cada uno de los elementos seleccionados (las tarjetas de Pokémon) utilizando el método forEach.
+      element.addEventListener('mouseover', (event) => { //Dentro de este manejador, se obtiene la tarjeta específica (card) que desencadenó el evento y se le agrega una clase llamada 'reverse-content'
         const card = event.target.closest('.pokemon-card');
-        card.classList.add('reverse-content');
+        card.classList.add('reverse-content'); // Esta clase tiene estilos CSS para mostrar la parte trasera de la tarjeta, lo que simula el efecto de volteo.
       });
       cards.addEventListener('mouseout', (event) => {
         const card = event.target.closest('.pokemon-card');
@@ -502,6 +550,20 @@ document.addEventListener("DOMContentLoaded", function () {
       figCaption.appendChild(weightPkn);
       picture.appendChild(figCaption);
       frontCards.appendChild(picture);
+
+      //Cálculo de Rango de Filtrado: Se calcula el rango de índices dentro del array arrayF que se mostrarán en la página actual.
+      // Esto se hace usando filterBegin y filterEnd, considerando la página actual (page) y la cantidad de tarjetas por página (cardPerPage).
+
+      // Bucle For: Se utiliza un bucle for para iterar a través del rango de índices calculado en el paso anterior.
+
+      //Creación de Text Nodes: Se crean objetos de tipo TextNode que contienen la información a mostrar en cada tarjeta, 
+      //como el número, nombre, altura, peso, información adicional, tipo, debilidades y resistencias del Pokémon.
+
+      //Creación de Elementos HTML: Se crean elementos HTML (picture, img y figcaption) para estructurar la tarjeta de Pokémon.
+
+      //Asignación de Contenido: Se asignan los nodos de texto y elementos HTML creados a la estructura de la tarjeta.
+
+      //Agregar a la Sección Frontal: La tarjeta completa se agrega al contenedor frontCards, lo que la muestra en la página.
 
       const pictureBack = document.createElement('picture');
       pictureBack.classList = 'pokemon-card';

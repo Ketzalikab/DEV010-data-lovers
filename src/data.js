@@ -77,5 +77,21 @@ const dataFunction = {
     }); 
   }
 };
+//Creación de numberPadded1: Si nameOrNumber1 es un número, la función crea una versión formateada de tres dígitos de nameOrNumber1 utilizando padStart(3, '0'). 
+//Esto asegura que el número tenga al menos tres dígitos.
+
+//Transformación a Minúsculas: Si nameOrNumber1 no es un número (presumiblemente un nombre), 
+//se convierte a minúsculas. Esto se hace para que la búsqueda no sea sensible a mayúsculas y minúsculas.
+
+//Búsqueda del Primer Pokémon: Se busca el primer Pokémon en el array pokemon que coincida con el número formateado o 
+//el nombre transformado a minúsculas. Esto se hace utilizando el método find. El Pokémon encontrado se almacena en la variable pkm1.
+
+//Obtención de Debilidades: Las debilidades del Pokémon pkm1 se almacenan en la variable weaknesses.
+
+//Filtrado de Pokémon por Debilidades: Se utiliza el método filter en el array pokemon para filtrar 
+//los Pokémon que tienen debilidades que coinciden con las debilidades del pkm1. Se utiliza some para verificar si al menos una debilidad coincide.
+
+//Resultado: El resultado de esta operación de filtrado es un nuevo array de Pokémon que comparten debilidades con el Pokémon pkm1. 
+//Este array filtrado se devuelve como resultado de la función computeStats.
 
 export default dataFunction;
