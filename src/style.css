@@ -166,7 +166,6 @@ button[name="kanto"]{
         width: 200px; 
         height: 310px;
         margin: 0 auto;
-        
        
     }
 
@@ -202,12 +201,12 @@ button[name="kanto"]{
     .frontText{
         text-align: center;
         font-family:'Monomaniac One', sans-serif;
-        font-size: 24px;
+        font-size: 18px;
     }
     .reverseText{
         text-align: center;
         font-family:'Monomaniac One', sans-serif;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     #buttons{
@@ -306,3 +305,4 @@ button[name="kanto"]{
     #alerts, #alertsCompare{
         color: red;
     }
+    
