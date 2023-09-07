@@ -136,14 +136,21 @@ describe('computeStats', () => {
 
   it('it returns the pokemons you can beat stadisticly', () => {
     const testDataComputeStast = [
-      { num: '117', name: 'seadra',  type: ['water'], weaknesses: ['electric', 'grass']}, 
-      { num: '244', name: 'entei', type: ['fire'], weaknesses: ['water', 'ground', 'rock']},
-      { num: '186', name: 'politoed', type: ['water'], weaknesses: ['electric','grass']},
+      { num: '117', name: 'seadra',  type: ['water'], weaknesses: ['electric', 'grass'], 
+        'special-attack': [{'base-damage': 90},{'base-damage': 130},{'base-damage': 80},{'base-damage': 130}]},
+      { num: '244', name: 'entei', type: ['fire'], weaknesses: ['water', 'ground', 'rock'],
+        'special-attack': [{'base-damage': 70},{'base-damage': 140},{'base-damage': 160}]},
+      { num: '186', name: 'politoed', type: ['water'], weaknesses: ['electric','grass'],
+        'special-attack': [{'base-damage': 130},{'base-damage': 130},{'base-damage': 120}]},
     ];
+
     const searchTerm = '117';
-    const foundPokemon = dataFunction.computeStats(testDataComputeStast, searchTerm);
-    const expectedFoundPokemon = [{ num: '244', name: 'entei', type: ['fire'], weaknesses: ['water', 'ground', 'rock']}];
+    const [foundPokemon, foundAverage] = dataFunction.computeStats(testDataComputeStast, searchTerm);
+    const expectedFoundPokemon = [{ num: '244', name: 'entei', type: ['fire'], weaknesses: ['water', 'ground', 'rock'],
+      'special-attack': [{'base-damage': 70},{'base-damage': 140},{'base-damage': 160}]}];
+    const expectedAverage = 107.5;
     expect(foundPokemon).toEqual(expectedFoundPokemon);
+    expect(foundAverage).toEqual(expectedAverage);
   });
 });
 

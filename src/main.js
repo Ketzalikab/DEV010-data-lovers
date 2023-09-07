@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
   let longArrayF, filterByRarity, filteredByGeneration, filteredByType;//, filterCombine;
   let generationOption, selectedType, selectedRarity;
-  let arrayAscendent, arrayDescendent, arraySearch, pokemonStronger, combinedFilters;
+  let arrayAscendent, arrayDescendent, arraySearch, combinedFilters, pokemonStronger;
+  let averageAttk;
   let numberPage = 1; //llevar el conteo de páginas*
   let kanto = false, johto = false;
   let btnPush = "", ascendent = false, descendent = false;
@@ -203,47 +204,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //función de flecha (() => {...}) y actúa como un manejador de eventos para el botón con el id btnFilter. 
-  //Es una función anónima que se utiliza como una función de callback en el método addEventListener. 
-  //Dado que está escrita en la sintaxis de funciones de flecha, es una función más concisa y en muchos casos puede reemplazar a las funciones regulares.
-
-  /*btnSearch.addEventListener("click", () => {
-    numberPage = 1; // Reiniciar el número de página
-    const numberOrName = valueSearch.value; // Obtener el valor del campo de búsqueda
-    alerts.innerHTML = ""; // Limpiar cualquier mensaje de alerta previo
-    //console.log(numberOrName);
-    if(numberOrName === null){ // Verificar si no se ingresó ningún valor
-      alerts.innerHTML = "Please write a pokemon name or a pokemon number";
-    }else{
-      if(!isNaN(numberOrName)){ // Si el valor es un número
-        const numberPadded = String(numberOrName).padStart(3, '0'); // Formatear el número
-        //String(numberOrName): Convierte el número o nombre proporcionado en una cadena.
-        //.padStart(3, '0'): Rellena la cadena con ceros a la izquierda hasta que tenga una longitud de 3 caracteres
-        arraySearch = dataFunction.searching(data.pokemon, numberPadded);
-      }else{ // Si el valor no es un número (presumiblemente un nombre)
-        arraySearch = dataFunction.searching(data.pokemon, numberOrName.toLowerCase());
-      }     
-      if(arraySearch === undefined){ // Si la búsqueda no encontró resultados
-        alerts.innerHTML = "Pokemon not found";
-      }else{
-        pokemonFound(arraySearch); // Mostrar información del Pokémon encontrado
-      }
-    }
-  })*/
-
   btnSearch.addEventListener("click", () => {
     numberPage = 1; // Reiniciar el número de página
     const numberOrName = valueSearch.value; // Obtener el valor del campo de búsqueda
     alerts.innerHTML = ""; // Limpiar cualquier mensaje de alerta previo
-    
     const isNumber = !isNaN(numberOrName);
-    
     if (!numberOrName) {
       alerts.innerHTML = "Please write a Pokémon name or a Pokémon number";
     } else {
       const searchTerm = isNumber ? String(numberOrName).padStart(3, '0') : numberOrName.toLowerCase();
       arraySearch = dataFunction.searching(data.pokemon, searchTerm);
-        
       if (arraySearch === undefined) {
         alerts.innerHTML = "Pokemon not found";
       } else {
@@ -251,7 +221,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-
 
   btnReset.addEventListener("click", () => {
     numberPage = 1;
@@ -279,13 +248,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if(numberOrName1 === null || numberOrName1 === ""){
       alerts.innerHTML = "Please write a pokemon name or a pokemon number";
     }else{
-      pokemonStronger = dataFunction.computeStats(data.pokemon, numberOrName1);
-    }       
-    if(pokemonStronger === undefined || pokemonStronger === ""){
+      //pokemonStronger = dataFunction.computeStats(data.pokemon, numberOrName1);
+      [pokemonStronger, averageAttk] = dataFunction.computeStats(data.pokemon, numberOrName1);
+    } 
+    if(pokemonStronger === undefined || pokemonStronger === ""){      
+    //if(pokemonStronger === undefined || pokemonStronger === ""){
       alertsCompare.innerHTML = "Pokemon not found";
     }else{
       filterArrays(numberPage, pokemonStronger);
-      alertsCompare.innerHTML = "STADISTICLY YOU CAN BEAT THIS POKEMONS:"
+      alertsCompare.innerHTML = "STADISTICLY YOU CAN BEAT THIS POKEMONS WITH A SPECIAL ATTACK AVERAGE OF: "+ averageAttk.toFixed(2);
+      marquee.innerHTML = "STADISTICLY YOU CAN BEAT THIS POKEMONS WITH A SPECIAL ATTACK AVERAGE OF: "+ averageAttk.toFixed(2);
     }
   });
 
